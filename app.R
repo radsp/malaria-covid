@@ -12,7 +12,7 @@
 
 library(shiny)
 library(shinydashboard)
-library(shinydashboardPlus)
+# library(shinydashboardPlus)
 library(dashboardthemes)
 library(civis)
 library(ggplot2)
