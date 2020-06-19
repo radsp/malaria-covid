@@ -30,19 +30,23 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                              dashboardBody(# theme_grey_light_edited,
                                            
                                            tabItems(
-                                             tabItem(tabName = "tabInfoStart",
+                                             tabItem(tabName = "tabInfoStart" #,
                                                      ## ----------------------------------------------------------------------------------!
                                                      ## NOTES: including the html file messes up the other tabs (graphs not showing up    !
                                                      ## in the malaria and covid tabs. Including the markdown file resolves this issue    !
                                                      ## but the title in the markdown is not showing in the dashboard)                    !
                                                      ## ----------------------------------------------------------------------------------!
-                                                     includeMarkdown("getting-started.rmd")),
-                                             tabItem(tabName = "tabInfoMal", 
-                                                     includeMarkdown("malaria-data.rmd")),
-                                             tabItem(tabName = "tabInfoCovid",
-                                                     includeMarkdown("covid-data.rmd")),
-                                             tabItem(tabName = "tabInfoMethods",
-                                                     includeMarkdown("methods.rmd"))
+                                                     # includeMarkdown("getting-started.rmd")
+                                                    ),
+                                             tabItem(tabName = "tabInfoMal" #, 
+                                                     # includeMarkdown("malaria-data.rmd")
+                                                    ),
+                                             tabItem(tabName = "tabInfoCovid"# ,
+                                                     # includeMarkdown("covid-data.rmd")
+                                                    ),
+                                             tabItem(tabName = "tabInfoMethods"#,
+                                                     # includeMarkdown("methods.rmd")
+                                                    )
                                            )
                                            
                                            )
