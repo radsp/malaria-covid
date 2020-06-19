@@ -37,7 +37,9 @@ if(!require(ggthemes)){
   install.packages("ggthemes")
 }
 
-
+library(shinydashboardPlus)
+library(dashboardthemes)
+library(ggthemes)
 
 ## -----------------------------------------------------------------
 # Sources
