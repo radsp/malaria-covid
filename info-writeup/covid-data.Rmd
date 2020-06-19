@@ -1,0 +1,12 @@
+---
+title: "COVID-19 Data"
+output: html_document
+---
+
+<br/>
+<br/>
+
+National-level COVID-19 cases and deaths are obtained from the Johns Hopkins University [http://.....], except for the following countries ...
+Daily new cases/deaths are derived from the cumulative data which then aggregated into monthly data. 
+
+Subnational COVID-19 cases and deaths for [list countries] are obtained from .......

@@ -1,0 +1,9 @@
+---
+title: "Getting Started"
+output: html_document
+---
+
+<br/>
+<br/>
+
+This dashboard provides information on malaria and COVID-19 indicators - including observed and forecasts data - intended to aid user in ........ 
