@@ -22,6 +22,7 @@ library(reshape2)
 library(markdown)
 library(rgdal)
 library(leaflet)
+library(devtools)
 
 # Packages that are not in the platform
 
@@ -30,7 +31,7 @@ if(!require(shinydashboardPlus)){
 }
 
 if(!require(dashboardthemes)){
-  install.packages("dashboardthemes")
+  install_github("nik01010/dashboardthemes")
 }
 
 if(!require(ggthemes)){
