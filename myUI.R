@@ -36,13 +36,13 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                                                      ## in the malaria and covid tabs. Including the markdown file resolves this issue    !
                                                      ## but the title in the markdown is not showing in the dashboard)                    !
                                                      ## ----------------------------------------------------------------------------------!
-                                                     includeMarkdown("info-writeup/getting-started.rmd")),
+                                                     includeMarkdown("getting-started.rmd")),
                                              tabItem(tabName = "tabInfoMal", 
-                                                     includeMarkdown("info-writeup/malaria-data.rmd")),
+                                                     includeMarkdown("malaria-data.rmd")),
                                              tabItem(tabName = "tabInfoCovid",
-                                                     includeMarkdown("info-writeup/covid-data.rmd")),
+                                                     includeMarkdown("covid-data.rmd")),
                                              tabItem(tabName = "tabInfoMethods",
-                                                     includeMarkdown("info-writeup/methods.rmd"))
+                                                     includeMarkdown("methods.rmd"))
                                            )
                                            
                                            )
