@@ -19,8 +19,8 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                   
                   
                   tabPanel("Info",
-                           dashboardPagePlus(
-                             dashboardHeaderPlus(disable = T),
+                           dashboardPage(
+                             dashboardHeader(disable = T),
                              
                              dashboardSidebar(sidebarMenu(id = "menuInfo",
                                                            menuItem("Getting Started", icon = NULL, tabName = "tabInfoStart"),
@@ -59,9 +59,9 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                             tags$style(type = "text/css", "#plot1 {height: calc(100vh - 150px) !important; }"),
                             tags$style(type = "text/css", "#plot2 {height: calc(100vh - 150px) !important; }"),
 
-                           dashboardPagePlus(
+                           dashboardPage(
                              
-                             dashboardHeaderPlus(disable = F, title = NULL),
+                             dashboardHeader(disable = F, title = NULL),
                              
                              dashboardSidebar(sidebarMenu(id = "menuMalaria", selected = TRUE,
                                                           
