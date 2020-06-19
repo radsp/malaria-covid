@@ -86,7 +86,7 @@ server <- function(input, output, session){
         ylab("Cases per 1K people") +
         ggtitle(dAdm0$dat$country[1]) +
         scale_x_continuous(breaks = seq(from = 1, to = 12, by = 2), labels = month.abb[seq(from = 1, to = 12, by = 2)]) +
-        theme_few(20) +
+        # theme_few(20) +
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
@@ -114,7 +114,7 @@ server <- function(input, output, session){
         ylab("Cases per 1K people") +
         ggtitle(input$inAdm0Indi) +
         scale_x_continuous(breaks = seq(from = 1, to = 12, by = 2), labels = month.abb[seq(from = 1, to = 12, by = 2)]) +
-        theme_few(16)  +
+        # theme_few(16)  +
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
@@ -153,7 +153,7 @@ server <- function(input, output, session){
         ylab("Cases per 1K people") +
         ggtitle(paste(dAdm1$dat$country[1], dAdm1$dat$admin_level_1[1], sep = " - ")) +
         scale_x_continuous(breaks = seq(from = 1, to = 12, by = 2), labels = month.abb[seq(from = 1, to = 12, by = 2)]) +
-        theme_few(20) +
+        # theme_few(20) +
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
@@ -179,7 +179,7 @@ server <- function(input, output, session){
         xlab("") + 
         ylab("Cases per 1K people") +
         scale_x_continuous(breaks = seq(from = 1, to = 12, by = 2), labels = month.abb[seq(from = 1, to = 12, by = 2)]) +
-        theme_few(16) +
+        # theme_few(16) +
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
