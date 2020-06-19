@@ -13,7 +13,7 @@
 library(shiny)
 library(shinydashboard)
 # library(shinydashboardPlus)
-library(dashboardthemes)
+# library(dashboardthemes)
 library(civis)
 library(ggplot2)
 library(dplyr)
@@ -25,7 +25,7 @@ library(leaflet)
 
 
 source("styling.R")
-source('theme_diy.R')
+# source('theme_diy.R')
 source('dat-gather.R')
 source("myUI.R")
 source("myServer.R")
