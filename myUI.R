@@ -85,7 +85,7 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                                                           )
                              ),
                              
-                             dashboardBody(theme_grey_light_edited,
+                             dashboardBody(# theme_grey_light_edited,
                                            
                                            tabItems(
                                              tabItem(tabName = "tabMalariaAdm0",
