@@ -27,7 +27,7 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                                                            menuItem("Malaria Data", icon = NULL, tabName = "tabInfoMal"),
                                                            menuItem("COVID-19 Data", icon = NULL, tabName = "tabInfoCovid"),
                                                            menuItem("Methods", icon = NULL, tabName = "tabInfoMethods"))),
-                             dashboardBody(theme_grey_light_edited,
+                             dashboardBody(# theme_grey_light_edited,
                                            
                                            tabItems(
                                              tabItem(tabName = "tabInfoStart",
