@@ -1,6 +1,6 @@
 # library(shinydashboardPlus)
 # library(ggplot2)
- # source('theme_diy.R')
+# source('theme_diy.R')
 
 # library(shinydashboard)
 
@@ -19,15 +19,15 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                   
                   
                   tabPanel("Info",
-                           dashboardPage(
-                             dashboardHeader(disable = T),
+                           dashboardPagePlus(
+                             dashboardHeaderPlus(disable = T),
                              
                              dashboardSidebar(sidebarMenu(id = "menuInfo",
                                                            menuItem("Getting Started", icon = NULL, tabName = "tabInfoStart"),
                                                            menuItem("Malaria Data", icon = NULL, tabName = "tabInfoMal"),
                                                            menuItem("COVID-19 Data", icon = NULL, tabName = "tabInfoCovid"),
                                                            menuItem("Methods", icon = NULL, tabName = "tabInfoMethods"))),
-                             dashboardBody(# theme_grey_light_edited,
+                             dashboardBody(theme_grey_light_edited,
                                            
                                            tabItems(
                                              tabItem(tabName = "tabInfoStart" #,
@@ -63,9 +63,9 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                             tags$style(type = "text/css", "#plot1 {height: calc(100vh - 150px) !important; }"),
                             tags$style(type = "text/css", "#plot2 {height: calc(100vh - 150px) !important; }"),
 
-                           dashboardPage(
+                           dashboardPagePlus(
                              
-                             dashboardHeader(disable = F, title = NULL),
+                             dashboardHeaderPlus(disable = F, title = NULL),
                              
                              dashboardSidebar(sidebarMenu(id = "menuMalaria", selected = TRUE,
                                                           
@@ -89,7 +89,7 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                                                           )
                              ),
                              
-                             dashboardBody(# theme_grey_light_edited,
+                             dashboardBody(theme_grey_light_edited,
                                            
                                            tabItems(
                                              tabItem(tabName = "tabMalariaAdm0",
