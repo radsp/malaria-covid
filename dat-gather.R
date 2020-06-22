@@ -33,17 +33,26 @@ xctry <- mutate(xctry0,
                                                 "severe", "deaths", "anc1_visit", "covid")),
                 boxgroup = factor(boxgroup, levels = c("All Cause Consultation", "Malaria Confirmed Cases", 
                                                        "Malaria Test Positivity Rate", "Severe Malaria Cases",
-                                                       "Malaria Deaths", "ANC Visit")))
+                                                       "Malaria Deaths", "ANC Visit"))) %>%
+  mutate(line_label = if_else( (linegroup %in% "Long-term mean"), "Long-term mean",
+                               if_else(!(variable %in% "covid_projection") , as.character(year), 
+                                       paste("COVID-19 ", pointgroup, sep = ""))),
+         point_label = paste(if_else( variable %in% "covid_projection", "COVID-19 ", ""), pointgroup, sep = "")) %>%
+  filter(!(country %in% c("Tanzania (Mainland)")))
+                                           
 
 xctryExc <- xctryExc0 %>%
-  mutate(colourgroup = factor(colourgroup, 
+  mutate(date = as.Date(as.character(date)),
+         colourgroup = factor(colourgroup, 
                               levels = c("All Cause Consultation", "Malaria Confirmed Cases", 
                                          "Malaria Test Positivity Rate", "Severe Malaria Cases",
-                                         "Malaria Deaths", "ANC Visit")))
+                                         "Malaria Deaths", "ANC Visit"))) %>%
+  filter( (date <= as.Date("2020-03-01")) & (date >= as.Date("2020-01-01"))   &  !(country %in% "Tanzania (Mainland)") )
+    
 
 xprov <- xprov0 %>% 
   mutate(colourgroup = factor(colourgroup, levels = c("allcause", "confirmed", "tpr", 
-                                                     "severe", "deaths", "anc1_visit", "covid")),
+                                                      "severe", "deaths", "anc1_visit", "covid")),
          boxgroup = factor(boxgroup, levels = c("All Cause Consultation", "Malaria Confirmed Cases", 
                                                 "Malaria Test Positivity Rate", "Severe Malaria Cases",
                                                 "Malaria Deaths", "ANC Visit")),

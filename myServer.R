@@ -68,66 +68,66 @@ server <- function(input, output, session){
   
   # National level plot -------------------------------------------------------------------------
   
-  output$plot1 <- renderPlot({
+  output$plot1 <- renderPlotly({
     
     dAdm0 <- get_datAdm0()
     
     if(input$inAdm0 == "Country"){
       
       g1 <- ggplot(dAdm0[["dat"]], aes(x = month)) +
-        geom_line(aes(x = month, y = value, colour = colourgroup, 
+        geom_line(aes(x = month, y = value, colour = colourgroup, text = line_label,
                       linetype = linegroup, alpha = alphagroup, group = interaction(mygroup, alphagroup, linegroup, colourgroup)), size = 0.9) +
-        geom_point(aes(x = month, y = value_point, colour = colourgroup,
+        geom_point(aes(x = month, y = value_point, colour = colourgroup, text = point_label,
                        shape = pointgroup), size = 3) +
         geom_ribbon(data = dAdm0$ribbon, 
                     aes(x = month, ymin = minval, ymax = maxval, fill = colourgroup), colour = NA, alpha = 0.1) +
         facet_wrap( ~ boxgroup, scales = "free") +
         xlab("") + 
         ylab("Cases per 1K people") +
-        ggtitle(dAdm0$dat$country[1]) +
+        ggtitle(as.character(dAdm0$dat$country[1])) +
         scale_x_continuous(breaks = seq(from = 1, to = 12, by = 2), labels = month.abb[seq(from = 1, to = 12, by = 2)]) +
-        # theme_few(20) +
+        theme_few(16) +
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
         scale_colour_manual("", values = clrset, 
                             labels = c("", "", "", "", "", "", "Covid"), drop = FALSE) +
         scale_fill_manual(values = clrset, drop = FALSE) +
-        guides(fill = FALSE,
-               colour = guide_legend(override.aes = list(colour = c(NA, NA, NA, NA, NA, NA, "#a65628"),
-                                     shape = NA), order = 1)) +
-        theme(legend.title = element_blank())
+        # guides(fill = FALSE,
+        #        colour = guide_legend(override.aes = list(colour = c(NA, NA, NA, NA, NA, NA, "#a65628"),
+        #                              shape = NA), order = 1)) +
+        theme(legend.title = element_blank(), legend.position = "none")
       
       
       
     } else if(input$inAdm0 == "Indicator"){
       
       g1 <- ggplot(dAdm0$dat) +
-        geom_line(aes(x = month, y = value, colour = colourgroup,
+        geom_line(aes(x = month, y = value, colour = colourgroup, text = line_label,
                       linetype = linegroup, alpha = alphagroup, group = interaction(mygroup, alphagroup, linegroup, colourgroup))) +
-        geom_point(aes(x = month, y = value_point, colour = colourgroup,
+        geom_point(aes(x = month, y = value_point, colour = colourgroup, text = point_label,
                        shape = pointgroup), size = 2) +
         geom_ribbon(data = dAdm0$ribbon, 
                     aes(x = month, ymin = minval, ymax = maxval, fill = colourgroup), colour = NA, alpha = 0.1) +
         facet_wrap(~ country, scales = "free") +
         xlab("") + 
         ylab("Cases per 1K people") +
-        ggtitle(input$inAdm0Indi) +
+        ggtitle(as.character(input$inAdm0Indi)) +
         scale_x_continuous(breaks = seq(from = 1, to = 12, by = 2), labels = month.abb[seq(from = 1, to = 12, by = 2)]) +
-        # theme_few(16)  +
+        theme_few(16)  +
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
         scale_colour_manual("", values = clrset, labels = c("", "", "", "", "", "", "Covid"), drop = FALSE) +
         scale_fill_manual(values = clrset, drop = FALSE) +
-        guides(fill = FALSE,
-               colour = guide_legend(
-               override.aes = list(colour = c(NA, NA, NA, NA, NA, NA, "#a65628"),
-                                      shape = NA), order = 1)) +
-        theme(legend.title = element_blank())
+        # guides(fill = FALSE,
+        #        colour = guide_legend(
+        #        override.aes = list(colour = c(NA, NA, NA, NA, NA, NA, "#a65628"),
+        #                               shape = NA), order = 1)) +
+        theme(legend.title = element_blank(), legend.position = "none")
     }
     
-    print(g1)
+    ggplotly(g1, tooltip = "text")
 
   })
   
@@ -153,7 +153,7 @@ server <- function(input, output, session){
         ylab("Cases per 1K people") +
         ggtitle(paste(dAdm1$dat$country[1], dAdm1$dat$admin_level_1[1], sep = " - ")) +
         scale_x_continuous(breaks = seq(from = 1, to = 12, by = 2), labels = month.abb[seq(from = 1, to = 12, by = 2)]) +
-        # theme_few(20) +
+        theme_few(20) +
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
@@ -179,16 +179,16 @@ server <- function(input, output, session){
         xlab("") + 
         ylab("Cases per 1K people") +
         scale_x_continuous(breaks = seq(from = 1, to = 12, by = 2), labels = month.abb[seq(from = 1, to = 12, by = 2)]) +
-        # theme_few(16) +
+        theme_few(16) +
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
         scale_colour_manual("", values = clrset, labels = c("", "", "", "", "", "", "Covid"), drop = FALSE) +
         scale_fill_manual(values = clrset, drop = FALSE) +
         guides(fill = FALSE,
-                colour = guide_legend(
-                  override.aes = list(colour = c(NA, NA, NA, NA, NA, NA, "#a65628"),
-                                      shape = NA), order = 1)) +
+               colour = guide_legend(
+                 override.aes = list(colour = c(NA, NA, NA, NA, NA, NA, "#a65628"),
+                                     shape = NA), order = 1)) +
         theme(legend.title = element_blank())
     }
     
