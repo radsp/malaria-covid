@@ -5,12 +5,13 @@ server <- function(input, output, session){
     switch(input$inAdm0,
            
            "Country" = selectInput(inputId = "inAdm0Ctry", label = NULL,
-                                   choices = sort(unique(xctry$country))),
+                                   choices = sort(unique(xctry$country)),
+                                   selected = "Benin"),
            "Indicator" = selectInput(inputId = "inAdm0Indi", label = NULL,
                                      choices = c("All Cause Consultation", "Malaria Confirmed Cases",
                                                  "Malaria Test Positivity Rate", "Severe Malaria Cases",
                                                  "Malaria Deaths", "ANC Visit"),
-                                     selected = NULL)
+                                     selected = "All Cause Consultation")
            
            )
     
@@ -206,14 +207,14 @@ server <- function(input, output, session){
   output$mapCovid <- renderLeaflet(
     
     leaflet(s) %>%
-      setView(2.25, 9, zoom = 7) %>%
+      setView(2.25, 9, zoom = 6) %>%
       addProviderTiles("CartoDB.Positron") %>%
       addPolygons(color = "#444444", weight = 1, smoothFactor = 0.5,
                   # opacity = 1.0, 
-                  # fillOpacity = 0.5,
+                  fillOpacity = 1,
                   # fillColor = ~pal(FinalRank)
-                  fillColor = ~colorQuantile("YlOrRd", FinalRank, n = 9)(FinalRank))    %>%
-       addLegend("topright", pal = colorQuantile("YlOrRd", s$FinalRank, n = 9),
+                  fillColor = ~colorNumeric("YlOrRd", domain = s$FinalRank, n = 5)(FinalRank))    %>%
+       addLegend("topright", pal = colorNumeric("YlOrRd", domain = s$FinalRank, n = 5),
                  values = ~ FinalRank,
               title = "Risk Ranking", 
                 opacity = 1)
@@ -223,34 +224,34 @@ server <- function(input, output, session){
   
   output$mapElderly <- renderLeaflet(
     leaflet(s) %>%
-      setView(2.25, 9, zoom = 7) %>%
+      setView(2.25, 9, zoom = 6) %>%
       addProviderTiles("CartoDB.Positron") %>%
       addPolygons(color = "#444444", weight = 1, smoothFactor = 0.5,
                   # opacity = 1.0, 
-                  # fillOpacity = 0.5,
+                  fillOpacity = 1,
                   # fillColor = ~pal(FinalRank)
-                  fillColor = ~colorQuantile("YlGnBu", ElderlyPop, n = 9)(ElderlyPop))   # %>%
-      # addLegend("topright", pal = colorQuantile("YlGnBu", s$ElderlyPop, n = 9),
-      #           values = ~ ElderlyPop,
-      #           title = "Population", 
-      #           opacity = 1)
+                  fillColor = ~colorNumeric("YlGnBu", domain = s$ElderlyPop, n = 20)(ElderlyPop))   %>%
+      addLegend("topright", pal = colorNumeric("YlGnBu", domain = s$ElderlyPop, n = 20),
+                 values = ~ ElderlyPop,
+                 title = "Population", 
+                 opacity = 1)
     
   )
   
   
   output$mapPopDen <- renderLeaflet(
     leaflet(s) %>%
-      setView(-2.25, 9, zoom = 7) %>%
+      setView(-2.25, 9, zoom = 6) %>%
       addProviderTiles("CartoDB.Positron") %>%
       addPolygons(color = "#444444", weight = 1, smoothFactor = 0.5,
                   # opacity = 1.0, 
-                  # fillOpacity = 0.5,
+                  fillOpacity = 1,
                   # fillColor = ~pal(FinalRank)
-                  fillColor = ~colorQuantile("BuPu", PopDens, n = 9)(PopDens))   # %>%
-      # addLegend("topright", pal = colorQuantile("BuPu", s$PopDens, n = 9),
-      #           values = ~ PopDens,
-      #           title = "Density", 
-       #          opacity = 1)
+                  fillColor = ~colorNumeric("BuPu", PopDens, n = 20)(PopDens))   %>%
+       addLegend("topright", pal = colorNumeric("BuPu", s$PopDens, n = 20),
+                 values = ~ PopDens,
+                 title = "Density", 
+                 opacity = 1)
     
   )
   

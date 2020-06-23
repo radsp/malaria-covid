@@ -30,22 +30,22 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                              dashboardBody(theme_grey_light_edited,
                                            
                                            tabItems(
-                                             tabItem(tabName = "tabInfoStart" #,
+                                             tabItem(tabName = "tabInfoStart" ,
                                                      ## ----------------------------------------------------------------------------------!
                                                      ## NOTES: including the html file messes up the other tabs (graphs not showing up    !
                                                      ## in the malaria and covid tabs. Including the markdown file resolves this issue    !
                                                      ## but the title in the markdown is not showing in the dashboard)                    !
                                                      ## ----------------------------------------------------------------------------------!
-                                                     # includeMarkdown("getting-started.rmd")
+                                                     includeHTML("getting-started.html")
                                                     ),
-                                             tabItem(tabName = "tabInfoMal" #, 
-                                                     # includeMarkdown("malaria-data.rmd")
+                                             tabItem(tabName = "tabInfoMal", 
+                                                      includeHTML("malaria-data.html")
                                                     ),
-                                             tabItem(tabName = "tabInfoCovid"# ,
-                                                     # includeMarkdown("covid-data.rmd")
+                                             tabItem(tabName = "tabInfoCovid" ,
+                                                      includeHTML("covid-data.html")
                                                     ),
-                                             tabItem(tabName = "tabInfoMethods"#,
-                                                     # includeMarkdown("methods.rmd")
+                                             tabItem(tabName = "tabInfoMethods",
+                                                      includeHTML("methods.html")
                                                     )
                                            )
                                            
@@ -73,7 +73,7 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                                                                    icon = NULL, selected = TRUE,
                                                                    radioButtons(inputId = "inAdm0", label = "Plot by:",
                                                                                 choices = c("Country", "Indicator"),
-                                                                                selected = "Country", inline = TRUE),
+                                                                                selected = NULL, inline = TRUE),
                                                                    uiOutput("outAdm0PlotBy")
                                                                    ), tabName = "tabMalariaAdm0"),
                                                                    
@@ -118,16 +118,18 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                            
                            fluidRow(
                              column(9, 
-                                    box( title = "Areas At Risk for COVID-19 Based On Selected Indicators",
+                                    box( title = h4(HTML("Areas At Risk for COVID-19 <br/>
+                                                         Currently a placeholder - risk ranking here obtained from Cooper/Smith as an example")),
                                          collapsible = TRUE,
                                          leafletOutput("mapCovid"),
                                          width = 12
                                          )),
                              column(3, 
                                     checkboxGroupInput("inRiskIndicator", "Select indicators to be included:",
-                                                       c("Elderly Population ( > 60 years old)", "Population density",
-                                                         "Mobility", "Community health worker per population", 
-                                                         "Handwashing", "........"))
+                                                       c("Elderly Population ( > 60 years old)", 
+                                                         "Population density",
+                                                         "Mobility", "Health workers per population", 
+                                                         "Handwashing", "Annual new consultations (fever) per 10K people"))
                                     )),
                            
                            
@@ -154,7 +156,7 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                              ),
                              
                              box(
-                               title = "Community Health Worker",
+                               title = "Health Worker per Population",
                                collapsible = TRUE,
                                leafletOutput("mapCHW")
                              ),
