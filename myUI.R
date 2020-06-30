@@ -65,7 +65,7 @@ ui <- navbarPage( theme = "bootstrap.min.css",
 
                            dashboardPagePlus(
                              
-                             dashboardHeaderPlus(disable = F, title = NULL),
+                             dashboardHeaderPlus(disable = F, title = NULL, titleWidth = 0),
                              
                              dashboardSidebar(sidebarMenu(id = "menuMalaria", selected = TRUE,
                                                           
