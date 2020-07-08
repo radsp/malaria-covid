@@ -366,9 +366,74 @@ summary {
 </div>
 
 
-<p><br /> <br /></p>
+<div id="covid-19-data-and-indicators" class="section level1">
+<h1>COVID-19 Data and Indicators</h1>
 <p>National-level COVID-19 cases and deaths are obtained from the Johns Hopkins University [<a href="http://" class="uri">http://</a>…..], except for the following countries … Daily new cases/deaths are derived from the cumulative data which then aggregated into monthly data.</p>
 <p>Subnational COVID-19 cases and deaths for [list countries] are obtained from …….</p>
+<table>
+<colgroup>
+<col width="15%"></col>
+<col width="22%"></col>
+<col width="10%"></col>
+<col width="5%"></col>
+<col width="46%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Source</th>
+<th>Native resolution</th>
+<th>Update frequency</th>
+<th>Desired indicator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Population (2020 or 2019)</td>
+<td>worldpop</td>
+<td>1 km</td>
+<td>Annual</td>
+<td>Percentage of population at specific age cohort</td>
+</tr>
+<tr class="even">
+<td>Population density</td>
+<td>Provincial shapefiles + worldpop</td>
+<td>Mixed</td>
+<td>N/A</td>
+<td>Calculate total population (from worldpop) per area (from shapefile)</td>
+</tr>
+<tr class="odd">
+<td>Population mobility</td>
+<td>Google mobility</td>
+<td>Admin 1 level &amp; daily</td>
+<td>Monthly (?)</td>
+<td>Change in mobility from baseline for each category (latest date available, or aggregate over a month?)</td>
+</tr>
+<tr class="even">
+<td>Handwashing</td>
+<td>DHS program Raw data (request permissions) <a href="https://dhsprogram.com/data/" class="uri">https://dhsprogram.com/data/</a></td>
+<td>Admin 1 level</td>
+<td>N/A</td>
+<td>Percent of population living in households with soap and water Percent of population living in households where place for washing hands was observed</td>
+</tr>
+<tr class="odd">
+<td>Hhealth workforce</td>
+<td>PMI Quarterly ReportR</td>
+<td>Admin 2 level &amp; annualquarterly</td>
+<td>AnnualQuarterly</td>
+<td>Density of health workers per 10,000 population (using worldpop population or from QR?) from the last month available</td>
+</tr>
+<tr class="even">
+<td>New consultations (all cause) per 1,000 population</td>
+<td>PMI Quarterly Report</td>
+<td>Admin 2 level &amp; monthly</td>
+<td>Quarterly</td>
+<td>The number of outpatient consultations for any reason that were reported in the district in the HMIS per 1,000 population</td>
+</tr>
+</tbody>
+</table>
+<p>You can now import Markdown table code directly using File/Paste table data… dialog.</p>
+</div>
 
 
 
