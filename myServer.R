@@ -92,7 +92,7 @@ server <- function(input, output, session){
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
         scale_colour_manual("", values = clrset, 
-                            labels = c("", "", "", "", "", "", "Covid"), drop = FALSE) +
+                            labels = c("", "", "", "", "", "", "COVID-19"), drop = FALSE) +
         scale_fill_manual(values = clrset, drop = FALSE) +
         # guides(fill = FALSE,
         #        colour = guide_legend(override.aes = list(colour = c(NA, NA, NA, NA, NA, NA, "#a65628"),
@@ -119,7 +119,7 @@ server <- function(input, output, session){
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
-        scale_colour_manual("", values = clrset, labels = c("", "", "", "", "", "", "Covid"), drop = FALSE) +
+        scale_colour_manual("", values = clrset, labels = c("", "", "", "", "", "", "COVID-19"), drop = FALSE) +
         scale_fill_manual(values = clrset, drop = FALSE) +
         # guides(fill = FALSE,
         #        colour = guide_legend(
@@ -158,7 +158,7 @@ server <- function(input, output, session){
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
-        scale_colour_manual("", values = clrset, labels = c("", "", "", "", "", "", "Covid"), drop = FALSE) +
+        scale_colour_manual("", values = clrset, labels = c("", "", "", "", "", "", "COVID-19"), drop = FALSE) +
         scale_fill_manual(values = clrset, drop = FALSE) +
         guides(fill = FALSE,
                colour = guide_legend(
@@ -184,7 +184,7 @@ server <- function(input, output, session){
         scale_alpha_manual("", values = c(1, 0.3), drop = FALSE) +
         scale_linetype_manual("", values = c("dotted", "solid"), labels = c("Long-term mean", "2020"), drop = FALSE) +
         scale_shape_manual(values = c(1, 16), drop = FALSE) +
-        scale_colour_manual("", values = clrset, labels = c("", "", "", "", "", "", "Covid"), drop = FALSE) +
+        scale_colour_manual("", values = clrset, labels = c("", "", "", "", "", "", "COVID-19"), drop = FALSE) +
         scale_fill_manual(values = clrset, drop = FALSE) +
         guides(fill = FALSE,
                colour = guide_legend(

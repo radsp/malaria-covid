@@ -43,9 +43,14 @@ if(!require(plotly)){
   install.packages("plotly")
 }
 
+if(!require(rmarkdown)){
+  install.packages("rmarkdown")
+}
+
 library(shinydashboardPlus)
 library(dashboardthemes)
 library(ggthemes)
+library(rmarkdown)
 
 ## -----------------------------------------------------------------
 # Sources

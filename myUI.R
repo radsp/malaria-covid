@@ -14,7 +14,7 @@ convertMenuItem <- function(mi,tabName) {
 
 ui <- navbarPage( theme = "bootstrap.min.css", 
                   
-                  title = "Malaria During COVID-19",
+                  title = HTML("COVID-19 and Malaria Tracking and Vulnerability Tool &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"),
                   
                   
                   
@@ -58,7 +58,7 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                            
                           
                   
-                  tabPanel("Malaria",
+                  tabPanel("Malaria Impact",
                            
                             tags$style(type = "text/css", "#plot1 {height: calc(100vh - 150px) !important; }"),
                             tags$style(type = "text/css", "#plot2 {height: calc(100vh - 150px) !important; }"),
@@ -106,7 +106,7 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                            
                   ),
                   
-                  tabPanel("COVID-19",
+                  tabPanel("COVID-19 Vulnerability",
                            
                              
                            selectInput(inputId = "inCovidCtry", label = "Select Country",
@@ -119,7 +119,7 @@ ui <- navbarPage( theme = "bootstrap.min.css",
                            fluidRow(
                              column(9, 
                                     box( title = h4(HTML("Areas At Risk for COVID-19 <br/>
-                                                         Currently a placeholder - risk ranking here obtained from Cooper/Smith as an example")),
+                                                         An example of vulnerability risk ranking obtained from Cooper/Smith")),
                                          collapsible = TRUE,
                                          leafletOutput("mapCovid"),
                                          width = 12

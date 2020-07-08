@@ -52,7 +52,10 @@ xctryExc <- xctryExc0 %>%
 
 xprov <- xprov0 %>% 
   mutate(colourgroup = factor(colourgroup, levels = c("allcause", "confirmed", "tpr", 
-                                                      "severe", "deaths", "anc1_visit", "covid")),
+                                                      "severe", "deaths", "anc1_visit", "covid"),
+                              labels = c("All Cause Consultation", "Malaria Confirmed Cases", 
+                                         "Malaria Test Positivity Rate", "Severe Malaria Cases", "Malaria Deaths", 
+                                         "ANC Visit", "COVID-19")),
          boxgroup = factor(boxgroup, levels = c("All Cause Consultation", "Malaria Confirmed Cases", 
                                                 "Malaria Test Positivity Rate", "Severe Malaria Cases",
                                                 "Malaria Deaths", "ANC Visit")),
