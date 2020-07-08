@@ -15,7 +15,8 @@
 
 
 # National data
-xctry0 <- read_civis("covid.appdata_ctry")
+# xctry0 <- read_civis("covid.appdata_ctry")
+xctry0 <- read_civis("covid.appdata_ctry_hqdemoField")
 # National data for plotting excess as ribbon/shaded
 xctryExc0 <- read_civis("covid.appdata_ctry_excess")
 
