@@ -41,7 +41,8 @@ xctry <- mutate(xctry0,
                                        paste("COVID-19 ", pointgroup, sep = ""))),
          point_label = paste(if_else( variable %in% "covid_projection", "COVID-19 ", ""), pointgroup, sep = "")) %>%
   filter(!(country %in% c("Tanzania (Mainland)"))) %>%
-filter(country %in% c("Benin", "Guinea"))
+filter(country %in% c("Benin", "Guinea")) %>%
+mutate(country = factor(country, levels = as.character(unique(country)), labels = paste("Country", 1:length(unique(country)), sep = " ")))
                                            
 
 xctryExc <- xctryExc0 %>%
@@ -51,7 +52,8 @@ xctryExc <- xctryExc0 %>%
                                          "Malaria Test Positivity Rate", "Severe Malaria Cases",
                                          "Malaria Deaths", "ANC Visit"))) %>%
   filter( (date <= as.Date("2020-03-01")) & (date >= as.Date("2020-01-01"))   &  !(country %in% "Tanzania (Mainland)") ) %>%
-filter(country %in% c("Benin", "Guinea"))
+filter(country %in% c("Benin", "Guinea")) %>%
+mutate(country = factor(country, levels = as.character(unique(country)), labels = paste("Country", 1:length(unique(country)), sep = " ")))
 
     
 
@@ -67,14 +69,18 @@ xprov <- xprov0 %>%
          alphagroup = factor(alphagroup, levels = c("2020", "Other Years")),
          linegroup = factor(linegroup, levels = c( "Long-term mean", "Monthly Data/Forecast")),
          pointgroup = factor(pointgroup, levels = c("Forecast", "Observed"))) %>%
-filter(country %in% c("Benin", "Guinea"))
+filter(country %in% c("Benin", "Guinea")) %>%
+mutate(country = factor(country, levels = as.character(unique(country)), labels = paste("Country", 1:length(unique(country)), sep = " ")),
+      admin_level_1 = factor(admin_level_1, levels = as.character(unique(admin_level_1)), labels = paste("Admin1_", length(unique(admin_level_1)), sep = "")))
 
 xprovExc <- xprovExc0 %>%
   mutate(colourgroup = factor(colourgroup, 
                               levels = c("All Cause Consultation", "Malaria Confirmed Cases", 
                                          "Malaria Test Positivity Rate", "Severe Malaria Cases",
                                          "Malaria Deaths", "ANC Visit"))) %>%
-filter(country %in% c("Benin", "Guinea"))
+filter(country %in% c("Benin", "Guinea"))  %>%
+mutate(country = factor(country, levels = as.character(unique(country)), labels = paste("Country", 1:length(unique(country)), sep = " ")),
+      admin_level_1 = factor(admin_level_1, levels = as.character(unique(admin_level_1)), labels = paste("Admin1_", length(unique(admin_level_1)), sep = "")))
 
 
 
