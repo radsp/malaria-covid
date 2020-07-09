@@ -21,7 +21,8 @@ xctry0 <- read_civis("covid.appdata_ctry_hqdemoField")
 xctryExc0 <- read_civis("covid.appdata_ctry_excess")
 
 # Provincial data
-xprov0 <- read_civis("covid.appdata_prov")
+# xprov0 <- read_civis("covid.appdata_prov")
+xprov0 <- read_civis("covid.appdata_prov_hqdemoField")
 xprovExc0 <- read_civis("covid.appdata_prov_excess")
 
 
